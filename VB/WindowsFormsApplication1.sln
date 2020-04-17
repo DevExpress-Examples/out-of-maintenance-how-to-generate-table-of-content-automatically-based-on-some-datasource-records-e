@@ -1,4 +1,4 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
+﻿Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.vbproj", "{FC74C31D-93E1-4D23-A016-C67D41689441}"
 EndProject

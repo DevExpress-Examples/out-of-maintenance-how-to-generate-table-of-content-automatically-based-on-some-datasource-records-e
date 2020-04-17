@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Data
@@ -14,13 +13,14 @@ Imports DevExpress.XtraRichEdit.API.Native
 Namespace WindowsFormsApplication1
 	Partial Public Class Form1
 		Inherits RibbonForm
+
 		Public Sub New()
 			InitializeComponent()
 		End Sub
 
 		Private someDT As New DataTable()
-		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
-			Dim loremIpsumString As String = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna." & Constants.vbCrLf & "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus." & Constants.vbCrLf & "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci."
+		Private Sub Form1_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+			Dim loremIpsumString As String = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna." & vbCrLf & "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus." & vbCrLf & "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci."
 
 
 			someDT.Columns.Add("Header", GetType(String))
