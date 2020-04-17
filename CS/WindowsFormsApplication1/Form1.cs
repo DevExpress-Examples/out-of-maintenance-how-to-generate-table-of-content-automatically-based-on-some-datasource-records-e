@@ -33,10 +33,10 @@ namespace WindowsFormsApplication1 {
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e) {
             foreach(DataRow dataRow in someDT.Rows) {
-                Paragraph headerParagraph = richEditControl1.Document.AppendParagraph();
+                Paragraph headerParagraph = richEditControl1.Document.Paragraphs.Append();
                 SetParagraphStyleSettings(headerParagraph, 1);
                 DocumentRange headerRange = richEditControl1.Document.AppendText(dataRow["Header"].ToString());
-                Paragraph singleParagraph = richEditControl1.Document.AppendParagraph();
+                Paragraph singleParagraph = richEditControl1.Document.Paragraphs.Append();
                 SetParagraphStyleSettings(singleParagraph, 0);
                 ChangeHeaderCharacterProeprties(headerRange);
                 richEditControl1.Document.AppendText(dataRow["Content"].ToString());
@@ -47,7 +47,7 @@ namespace WindowsFormsApplication1 {
         }
 
         void InsertTOC(string switches) {
-            Field field = richEditControl1.Document.Fields.Add(richEditControl1.Document.Range.Start, "TOC " + switches);
+            Field field = richEditControl1.Document.Fields.Create(richEditControl1.Document.Range.Start, "TOC " + switches);
             CharacterProperties cp = richEditControl1.Document.BeginUpdateCharacters(field.Range);
             cp.Bold = false;
             cp.FontSize = 12;

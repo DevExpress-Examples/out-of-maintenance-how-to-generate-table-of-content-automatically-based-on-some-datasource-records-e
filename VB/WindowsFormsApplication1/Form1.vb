@@ -33,10 +33,10 @@ Namespace WindowsFormsApplication1
 
 		Private Sub barButtonItem1_ItemClick(ByVal sender As Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles barButtonItem1.ItemClick
 			For Each dataRow As DataRow In someDT.Rows
-				Dim headerParagraph As Paragraph = richEditControl1.Document.AppendParagraph()
+				Dim headerParagraph As Paragraph = richEditControl1.Document.Paragraphs.Append()
 				SetParagraphStyleSettings(headerParagraph, 1)
 				Dim headerRange As DocumentRange = richEditControl1.Document.AppendText(dataRow("Header").ToString())
-				Dim singleParagraph As Paragraph = richEditControl1.Document.AppendParagraph()
+				Dim singleParagraph As Paragraph = richEditControl1.Document.Paragraphs.Append()
 				SetParagraphStyleSettings(singleParagraph, 0)
 				ChangeHeaderCharacterProeprties(headerRange)
 				richEditControl1.Document.AppendText(dataRow("Content").ToString())
@@ -47,7 +47,7 @@ Namespace WindowsFormsApplication1
 		End Sub
 
 		Private Sub InsertTOC(ByVal switches As String)
-			Dim field As Field = richEditControl1.Document.Fields.Add(richEditControl1.Document.Range.Start, "TOC " & switches)
+			Dim field As Field = richEditControl1.Document.Fields.Create(richEditControl1.Document.Range.Start, "TOC " & switches)
 			Dim cp As CharacterProperties = richEditControl1.Document.BeginUpdateCharacters(field.Range)
 			cp.Bold = False
 			cp.FontSize = 12
